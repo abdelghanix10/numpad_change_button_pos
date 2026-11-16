@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- POS Config Form View -->
     <record id="pos_config_view_form_inherit_numpad" model="ir.ui.view">
         <field name="name">pos.config.form.view.inherit.numpad</field>
         <field name="model">pos.config</field>
@@ -7,10 +8,70 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@id='title']" position="after">
                 <div class="row mt16 o_settings_container">
-                    <setting string="Custom Numpad Buttons" help="Change % to +, Price to -, and +/- to Delete">
+                    <setting string="Custom Numpad Buttons"
+                             help="Replace %, Price, and +/- buttons with quick +, -, and Delete actions">
                         <field name="iface_custom_numpad"/>
+                        <div class="content-group mt16" invisible="not iface_custom_numpad">
+                            <div class="row">
+                                <label for="iface_numpad_replace_discount" class="col-lg-6 o_light_label"/>
+                                <field name="iface_numpad_replace_discount"/>
+                            </div>
+                            <div class="row">
+                                <label for="iface_numpad_replace_price" class="col-lg-6 o_light_label"/>
+                                <field name="iface_numpad_replace_price"/>
+                            </div>
+                            <div class="row">
+                                <label for="iface_numpad_replace_sign" class="col-lg-6 o_light_label"/>
+                                <field name="iface_numpad_replace_sign"/>
+                            </div>
+                            <div class="row mt8">
+                                <label for="iface_numpad_min_qty_one" class="col-lg-6 o_light_label"/>
+                                <field name="iface_numpad_min_qty_one"/>
+                            </div>
+                            <div class="row">
+                                <label for="iface_numpad_confirm_delete" class="col-lg-6 o_light_label"/>
+                                <field name="iface_numpad_confirm_delete"/>
+                            </div>
+                        </div>
                     </setting>
                 </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- POS Global Settings View (Point of Sale -> Configuration -> Settings) -->
+    <record id="res_config_settings_view_form_inherit_numpad" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.numpad</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="inside">
+                <setting string="Custom Numpad Buttons"
+                         help="Replace %, Price, and +/- buttons with quick +, -, and Delete actions">
+                    <field name="pos_iface_custom_numpad"/>
+                    <div class="content-group mt16" invisible="not pos_iface_custom_numpad">
+                        <div class="row">
+                            <label for="pos_iface_numpad_replace_discount" class="col-lg-6 o_light_label"/>
+                            <field name="pos_iface_numpad_replace_discount"/>
+                        </div>
+                        <div class="row">
+                            <label for="pos_iface_numpad_replace_price" class="col-lg-6 o_light_label"/>
+                            <field name="pos_iface_numpad_replace_price"/>
+                        </div>
+                        <div class="row">
+                            <label for="pos_iface_numpad_replace_sign" class="col-lg-6 o_light_label"/>
+                            <field name="pos_iface_numpad_replace_sign"/>
+                        </div>
+                        <div class="row mt8">
+                            <label for="pos_iface_numpad_min_qty_one" class="col-lg-6 o_light_label"/>
+                            <field name="pos_iface_numpad_min_qty_one"/>
+                        </div>
+                        <div class="row">
+                            <label for="pos_iface_numpad_confirm_delete" class="col-lg-6 o_light_label"/>
+                            <field name="pos_iface_numpad_confirm_delete"/>
+                        </div>
+                    </div>
+                </setting>
             </xpath>
         </field>
     </record>
