@@ -1,28 +1,31 @@
 .numpad-plus:not(:disabled) {
     color: #198754 !important;
+    background-color: rgba(25, 135, 84, 0.08) !important;
     font-size: 1.35rem !important;
 
     &:hover,
     &:active {
-        background-color: rgba(25, 135, 84, 0.12) !important;
+        background-color: rgba(25, 135, 84, 0.18) !important;
     }
 }
 
 .numpad-minus:not(:disabled) {
-    color: #fd7e14 !important;
+    color: #d97706 !important;
+    background-color: rgba(253, 126, 20, 0.08) !important;
     font-size: 1.35rem !important;
 
     &:hover,
     &:active {
-        background-color: rgba(253, 126, 20, 0.12) !important;
+        background-color: rgba(253, 126, 20, 0.18) !important;
     }
 }
 
 .numpad-delete:not(:disabled) {
     color: #dc3545 !important;
+    background-color: rgba(220, 53, 69, 0.08) !important;
 
     &:hover,
     &:active {
-        background-color: rgba(220, 53, 69, 0.12) !important;
+        background-color: rgba(220, 53, 69, 0.18) !important;
     }
 }
